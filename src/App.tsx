@@ -7,7 +7,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState('inicio')
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans">
+    <div className="site-shell min-h-screen flex flex-col text-slate-900 font-sans">
       {/* Header Limpio (Sin TopBar) */}
       <Header currentPage={currentPage} onNavigate={setCurrentPage} />
 

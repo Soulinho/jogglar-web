@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({
   }
 
   return (
-    <header className="w-full bg-white border-b border-slate-100 sticky top-0 z-50">
+    <header className="site-header w-full sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20 sm:h-24">
           
@@ -36,16 +36,16 @@ export const Header: React.FC<HeaderProps> = ({
           <Logo size="lg" />
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 lg:space-x-10">
+          <nav className="hidden lg:flex items-center space-x-8 lg:space-x-10">
             {navLinks.map((link) => (
               <a
                 key={link.id}
                 href={link.href}
                 onClick={() => handleLinkClick(link.id)}
-                className={`text-sm font-medium transition-colors duration-150 ${
+                className={`desktop-nav-link text-sm font-medium ${
                   currentPage === link.id
-                    ? 'text-slate-950 font-semibold'
-                    : 'text-slate-600 hover:text-slate-950'
+                    ? 'is-active'
+                    : ''
                 }`}
               >
                 {link.label}
@@ -54,15 +54,16 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Mobile menu button */}
-          <div className="flex md:hidden">
+          <div className="flex lg:hidden">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-slate-900 p-2 rounded-lg hover:bg-slate-100 transition-colors"
               aria-expanded={mobileMenuOpen}
-              aria-label="Toggle navigation menu"
+              aria-controls="mobile-navigation"
+              aria-label={mobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
             </button>
           </div>
 
@@ -71,23 +72,21 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 px-6 py-5 shadow-lg">
-          <nav className="flex flex-col space-y-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.id}
-                href={link.href}
-                onClick={() => handleLinkClick(link.id)}
-                className={`text-base font-medium py-1 transition-colors ${
-                  currentPage === link.id
-                    ? 'text-slate-950 font-semibold'
-                    : 'text-slate-600 hover:text-slate-950'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
+        <div id="mobile-navigation" className="mobile-menu lg:hidden">
+          <div className="mobile-menu__inner">
+            <nav className="mobile-nav" aria-label="Navegación principal">
+              {navLinks.map((link) => (
+                <a
+                  key={link.id}
+                  href={link.href}
+                  onClick={() => handleLinkClick(link.id)}
+                  className={`mobile-nav-link ${currentPage === link.id ? 'is-active' : ''}`}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
         </div>
       )}
     </header>

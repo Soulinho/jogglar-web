@@ -1,5 +1,5 @@
 import React from 'react'
-import { UserCheck, TrendingUp, Building2, Compass, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { UserCheck, TrendingUp, Building2, Compass, CheckCircle2 } from 'lucide-react'
 import { SERVICES } from '../../data/content'
 import { Button } from '../common/Button'
 
@@ -80,7 +80,6 @@ export const ServicesSection: React.FC = () => {
                   className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-cyan-400 hover:text-blue-700 dark:hover:text-cyan-300 transition-colors"
                 >
                   <span>Solicitar este servicio</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
             </div>
@@ -107,7 +106,6 @@ export const ServicesSection: React.FC = () => {
                   href="#contacto"
                   variant="primary"
                   size="md"
-                  icon={<ArrowRight className="w-4 h-4" />}
                 >
                   Contactar Asesoría Empresas
                 </Button>
@@ -132,7 +130,6 @@ export const ServicesSection: React.FC = () => {
                   href="#contacto"
                   variant="white"
                   size="md"
-                  icon={<ArrowRight className="w-4 h-4" />}
                 >
                   Registrar mi CV
                 </Button>

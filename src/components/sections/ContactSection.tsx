@@ -58,7 +58,7 @@ export const ContactSection: React.FC = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-cyan-400 hover:underline mt-2"
                   >
-                    Ver en Google Maps →
+                    Ver en Google Maps
                   </a>
                 </div>
               </div>
@@ -152,10 +152,10 @@ export const ContactSection: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => setFormData({ ...formData, type: 'empresa' })}
-                        className={`py-2.5 px-4 rounded-xl text-xs font-semibold border transition-all text-center cursor-pointer ${
+                        className={`profile-option ${
                           formData.type === 'empresa'
-                            ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                            : 'bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-600 hover:bg-slate-50'
+                            ? 'is-active'
+                            : ''
                         }`}
                       >
                         Soy Empresa / RRHH
@@ -163,10 +163,10 @@ export const ContactSection: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => setFormData({ ...formData, type: 'postulante' })}
-                        className={`py-2.5 px-4 rounded-xl text-xs font-semibold border transition-all text-center cursor-pointer ${
+                        className={`profile-option ${
                           formData.type === 'postulante'
-                            ? 'bg-cyan-600 text-white border-cyan-600 shadow-sm'
-                            : 'bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-600 hover:bg-slate-50'
+                            ? 'is-active'
+                            : ''
                         }`}
                       >
                         Soy Profesional / Postulante

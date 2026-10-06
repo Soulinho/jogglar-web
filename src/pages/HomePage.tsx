@@ -4,7 +4,7 @@ import { BlogSection } from '../components/sections/BlogSection'
 
 export const HomePage: React.FC = () => {
   return (
-    <main className="flex-1 bg-white">
+    <main className="flex-1">
       {/* 1. Hero Principal */}
       <HeroSection />
 
